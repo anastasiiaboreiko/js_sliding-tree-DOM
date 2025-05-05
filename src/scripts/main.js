@@ -3,13 +3,13 @@
 const liElements = document.querySelectorAll('li');
 
 liElements.forEach((li) => {
-  const firstChild = li.firstChild;
+  const child = li.firstChild;
 
-  if (firstChild.nodeType === 3 && firstChild.textContent.trim() !== '') {
+  if (child && child.nodeType === 3 && child.textContent.trim() !== '') {
     const span = document.createElement('span');
 
-    span.textContent = firstChild.textContent.trim();
-    li.replaceChild(span, firstChild);
+    span.textContent = child.textContent.trim();
+    li.replaceChild(span, child);
 
     span.addEventListener('click', (e) => {
       const nestedUl = li.querySelector(':scope > ul');
